@@ -1,5 +1,5 @@
 <h1>Burgertunes</h1>
-Privacy-respecting YouTube music frontend <br>
+Privacy-respecting YouTube music frontend <br><br>
 
 If you don't want to create your own instance, you can use this instance: <br>
 https://burgertunesapp.maaa101.repl.co/<br>
