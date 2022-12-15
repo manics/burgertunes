@@ -8,7 +8,7 @@ Privacy-respecting YouTube Music frontend! <br><br>
 4. Install all the dependecies in "requirements.txt" using pip. (pip install -r requirements.txt)<br>
 5. All done! 🎉 Run main.py to start the server.<br>
 
-<h2>Featured servers</h2>
-If you wish that your own burgertunes instance was featured here, create a GitHub issue and let me know!
+<h2>Featured instance</h2>
+If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 <br>
 - https://burgertunesapp.maaa101.repl.co/ (@maaa101)
