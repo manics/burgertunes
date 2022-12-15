@@ -1,3 +1,11 @@
+# Change the host and port
+HOST = "0.0.0.0"
+PORT = 81
+
+# TESTING ONLY
+#HOST = "localhost"
+#PORT = 8080
+
 from flask import Flask, render_template, request, url_for, flash, redirect, session
 from yt_dlp import YoutubeDL
 from ytmusicapi import YTMusic
@@ -14,6 +22,8 @@ app = Flask(__name__)
 ydl_opts = {"format": "bestaudio", "noplaylist": "True",
             "outtmpl": "static/cache/%(id)s.%(ext)s"}
 
+shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
+os.mkdir("static/cache")
 
 def SearchMusic(query, searchtype, limit):
     ytmusic = YTMusic()
@@ -113,6 +123,5 @@ def about():
 
 if __name__ == "__main__":
     from waitress import serve
-    # On servers, the host should be 0.0.0.0 and port 81 or 80, for testing the host should be localhost and port 8080.
-    serve(app, host="localhost", port=8080)
+    serve(app, host=HOST, port=PORT)
     print("Server stopped")
