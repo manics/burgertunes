@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ info.title }} - {{ info.artist }}</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="burgerlogo" href="/">
+            <h1>Burgertunes</h1>
+            <p>Privacy-friendly music streaming</p>
+        </a>
+    </div>
+    <div class="audioplayer">
+        <h1>{{ info.title }}</h1>
+
+        <img class="coverartplayer" src="{{ info.thumbnails[38].url }}">
+        <br>
+        <audio id="musicPlayer" controls>
+            <source src="{{ audiourl }}" type="audio/webm">
+            Your browser does not support the audio element.
+        </audio>
+        </p>
+    </div>
+
+    <h2>More from {{ info.artist }}</h2>
+    {% for video in results.songs.results %}
+    <a class="linkwrap" href="/music/{{ video.videoId }}">
+        <div class="musicdiv">
+            <img class="videoimg" src="{{ video.thumbnails[0].url }}">
+            {% if video.isExplicit %}
+            <p class="explicittag">EXPLICIT</p>
+            {% endif %}
+            <p class="videotitle">{{ video.title }}</p>
+            {% for artist in video.artists %}
+            <p class="videoauthor">{{ artist.name }} </p>
+            {% endfor %}
+        </div>
+    </a>
+    {% endfor %}
+    </script>
+</body>
+
+</html>

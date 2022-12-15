@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Burgertunes</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="burgerlogo" href="/">
+            <h1>Burgertunes</h1>
+        </a>
+        <form method="post">
+            <input class="searchbar" name="searchbar" value="{{ searchkeyword }}" type="text"
+                placeholder="Search..">
+
+            <button type="submit" class="searchbutton">Search</button>
+        </form>
+    </div>
+    {% if startPage %}
+    <h2>Recommendations</h2>
+    {% endif %}
+    <div class="horizontalcontainer">
+        {% for video in albumresults %}
+        <a class="linkwrap" href="/album/{{ video.browseId }}">
+            <div class="albumdiv">
+                <img class="videoimg albumsize" loading="lazy" src="{{ video.thumbnails[3].url }}">
+                <br>
+                {% if video.isExplicit %}
+                <p class="explicittag">EXPLICIT</p>
+                {% endif %}
+                <p class="albumtitle">{{ video.title | truncate(39, true, '..')}}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    {% for video in results %}
+    <a class="linkwrap" href="/music/{{ video.videoId }}">
+        <div class="musicdiv">
+            <img class="videoimg" loading="lazy" src="{{ video.thumbnails[0].url }}">
+            {% if video.isExplicit %}
+            <p class="explicittag">EXPLICIT</p>
+            {% endif %}
+            <p class="videotitle">{{ video.title }}</p>
+            {% for artist in video.artists %}
+            <p class="videoauthor">{{ artist.name }} </p>
+            {% endfor %}
+        </div>
+    </a>
+    {% endfor %}
+</body>
+
+</html>

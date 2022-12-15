@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Burgertunes</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="burgerlogo" href="/">
+            <h1>Burgertunes</h1>
+            <p>Privacy-friendly music streaming</p>
+        </a>
+    </div>
+
+    <div class="audioplayer audioplayerinv">
+        <p></p>
+        <img class="albumviewimg" src="{{ results.thumbnails[3].url }}">
+    </div>
+    <br>
+    <h2>{{ results.title }}</h1>
+        <audio id="musicPlayer" style="display:none" controls>
+            <source src="{{ audiourl }}" type="audio/webm">
+            Your browser does not support audio playback.
+        </audio>
+        {% for video in results.tracks %}
+        <a class="linkwrap" href="/music/{{ video.videoId }}" onClick="changeSong('{{ loop.index0 }}')"
+            songindex="{{ loop.index0 }}">
+            <div class="musicdiv noimage" id="musicdiv">
+                <!--<img class="videoimg" loading="lazy" src="">-->
+                {% if video.isExplicit %}
+                <p class="explicittag">EXPLICIT</p>
+                {% endif %}
+                <p class="videotitle">{{ video.title }}</p>
+                {% for artist in video.artists %}
+                <p class="videoauthor">{{ artist.name }} </p>
+                {% endfor %}
+            </div>
+        </a>
+        {% endfor %}
+
+        <script>
+            console.log("muh muh javascript!! 😭")
+
+            var audioNumber = 0
+
+            var playlistURL = "/api/album/{{ albumid }}/" + audioNumber
+            var musicPlayer = document.getElementById("musicPlayer");
+
+            musicPlayer.style.display = "block"
+
+            function updateList() {
+                var linkWrap = document.getElementsByClassName("linkwrap");
+
+                for (let i = 0; i < linkWrap.length; i++) {
+                    let button = linkWrap[i];
+                    buttonSongIndex = button.getAttribute("songindex");
+                    button.removeAttribute("href")
+                    if (buttonSongIndex == audioNumber) {
+                        button.classList.add("musicdivselected")
+                    } else {
+                        button.classList.remove("musicdivselected")
+                    }
+                }
+            }
+
+            function changeSong(num) {
+                musicPlayer.pause()
+                audioNumber = num
+                updateList()
+
+                musicPlayer.setAttribute("src", "/api/album/{{ albumid }}/" + num)
+                musicPlayer.play()
+            }
+
+            musicPlayer.addEventListener("ended", function () {
+                changeSong(parseInt(audioNumber) + parseInt(1))
+            });
+
+            changeSong(0)
+        </script>
+</body>
+
+</html>
