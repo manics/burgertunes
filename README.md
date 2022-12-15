@@ -12,6 +12,6 @@ https://burgertunesapp.maaa101.repl.co/<br>
 5. All done! 🎉 Run main.py to start the server.<br>
 
 <h2>Featured servers</h2>
-This is a list of burgertunes servers. If you wish for your burgertunes instance to be featured here, create a GitHub issue.
+If you wish that your own burgertunes instance was featured here, create a GitHub issue and let me know!
 <br>
-- https://burgertunesapp.maaa101.repl.co (@maaa101)
+- https://burgertunesapp.maaa101.repl.co/ (@maaa101)
