@@ -14,4 +14,4 @@ https://burgertunesapp.maaa101.repl.co/<br>
 <h2>Featured servers</h2>
 This is a list of burgertunes servers. If you wish for your burgertunes instance to be featured here, create a GitHub issue.
 <br>
-- https://burgertunesapp.maaa101.repl.co/ (@maaa101)
+- https://burgertunesapp.maaa101.repl.co (@maaa101)
