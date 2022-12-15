@@ -1,9 +1,6 @@
 <h1>Burgertunes</h1>
 Privacy-respecting YouTube Music frontend! <br><br>
 
-If you don't want to create your own instance, you can use this instance: <br>
-https://burgertunesapp.maaa101.repl.co/<br>
-
 <h2>Hosting Burgertunes</h2>
 1. Clone burgertunes (git clone https://github.com/maaa101/burgertunes)<br>
 2. Create a folder inside the "static" folder named "cache". If there already is a folder named "cache", you can safely skip this step.<br>
