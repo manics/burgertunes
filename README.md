@@ -1,5 +1,5 @@
 <h1>Burgertunes</h1>
-Privacy-respecting YouTube Music frontend, with no ads! <br>
+Privacy-respecting YouTube Music frontend with no ads or telemetry! <br>
 
 <h2>Creating a burgertunes instance</h2>
 1. Clone burgertunes (git clone https://github.com/maaa101/burgertunes)<br>
