@@ -13,7 +13,7 @@ You can stop your burgertunes instance by pressing CTRL + C.
 https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
 
 <br>
-If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
+If you want your own burgertunes instance to be displayed here, create a GitHub issue and let me know!
 
 <h2>✔️ Features</h2>
 - No ads <br>
