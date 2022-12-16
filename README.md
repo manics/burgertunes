@@ -14,9 +14,9 @@ If you want your own burgertunes instance to be featured here, create a GitHub i
 - https://burgertunesapp.maaa101.repl.co/ (@maaa101)
 
 <h2>FAQ</h2>
-Q: Which license is Burgertunes under?
-A: GPL v3
-
-Q: Does burgertunes require JavaScript?
-A: Partly, playing albums requires JavaScript. Playing songs don't.
-<br>There is only vanilla JavaScript, no bloated frameworks.
+Q: Which license is Burgertunes under?<br>
+A: GPL v3<br>
+<br>
+Q: Does burgertunes require JavaScript?<br>
+A: Partly, playing albums requires JavaScript. Playing songs don't.<br>
+<br>There is only vanilla JavaScript, no bloated frameworks.<br>
