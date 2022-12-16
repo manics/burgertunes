@@ -26,4 +26,4 @@ A: GPL v3<br>
 <br>
 Q: Does burgertunes require JavaScript?<br>
 A: Partly, playing albums requires JavaScript. Playing songs don't.<br>
-<br>There is only vanilla JavaScript, no bloated frameworks.<br>
+<br>There is only vanilla JavaScript, no libraries or frameworks.<br>
