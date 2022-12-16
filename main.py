@@ -1,6 +1,6 @@
 # Change the host and port
-HOST = "0.0.0.0"
-PORT = 81
+HOST = "localhost"
+PORT = 8080
 
 # TESTING ONLY
 #HOST = "localhost"

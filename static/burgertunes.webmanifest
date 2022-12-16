@@ -1,0 +1,16 @@
+{
+    "background_color": "#1e1e1e",
+    "description": "YouTube Music frontend",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "/static/icons/burgertunes256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }
+    ],
+    "name": "Burgertunes",
+    "short_name": "Burgertunes",
+    "start_url": "/"
+  }
+  
