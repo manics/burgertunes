@@ -9,9 +9,9 @@ Privacy-respecting YouTube Music frontend with no ads and telemetry! <br>
 You can stop your burgertunes instance by pressing CTRL + C.
 
 <h2>Featured instances</h2>
-If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 <br>
-- https://burgertunesapp.maaa101.repl.co/ (@maaa101)
+- https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
+If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 
 <h2>FAQ</h2>
 Q: Which license is Burgertunes under?<br>
