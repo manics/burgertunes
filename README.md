@@ -1,4 +1,4 @@
-<h1>Burgertunes 🍔</h1>
+<h1>🍔 Burgertunes</h1>
 Privacy-respecting YouTube Music frontend with no ads or telemetry! <br>
 
 <h2>🖥️ Creating your own burgertunes instance</h2>
@@ -12,6 +12,11 @@ You can stop your burgertunes instance by pressing CTRL + C.
 <h2>📚 Featured instances</h2>
 https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
 If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
+
+<h2>✔️ Features</h2>
+- No ads
+- No telemetry or data-collecting
+- 255 kbps high-quality audio
 
 <h2>❔ FAQ</h2>
 Q: Which license is Burgertunes under?<br>
