@@ -12,3 +12,11 @@ You can stop your burgertunes instance by pressing CTRL + C.
 If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 <br>
 - https://burgertunesapp.maaa101.repl.co/ (@maaa101)
+
+<h2>FAQ</h2>
+Q: Which license is Burgertunes under?
+A: GPL v3
+
+Q: Does burgertunes require JavaScript?
+A: Partly, playing albums requires JavaScript. Playing songs don't.
+<br>There is only vanilla JavaScript, no bloated frameworks.
