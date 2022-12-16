@@ -11,6 +11,8 @@ You can stop your burgertunes instance by pressing CTRL + C.
 
 <h2>📚 Featured instances</h2>
 https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
+
+<br>
 If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 
 <h2>✔️ Features</h2>
