@@ -14,8 +14,8 @@ https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
 If you want your own burgertunes instance to be featured here, create a GitHub issue and let me know!
 
 <h2>✔️ Features</h2>
-- No ads
-- No telemetry or data-collecting
+- No ads <br>
+- No telemetry or data-collecting <br>
 - 255 kbps high-quality audio
 
 <h2>❔ FAQ</h2>
