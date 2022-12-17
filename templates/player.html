@@ -5,9 +5,10 @@
     <title>{{ info.title }} - {{ info.artist }}</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/icons/burgertunes64.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-</head>
+    <link rel="manifest" href="{{ url_for('static', filename='burgertunes.webmanifest') }}" />
 
 <body>
     <div class="navbar">
@@ -21,9 +22,12 @@
 
         <img class="coverartplayer" src="{{ info.thumbnails[38].url }}">
         <br>
-        <audio id="musicPlayer" controls>
+        <audio controls preload="metadata" id="musicPlayer">
             <source src="{{ audiourl }}" type="audio/webm">
-            Your browser does not support the audio element.
+            <source src="{{ audiourl }}" type="audio/mp4">
+            <source src="{{ audiourl }}" type="audio/mpeg">
+            <source src="{{ audiourl }}" type="audio/mp3">
+            Your browser does not support audio playback.
         </audio>
         </p>
     </div>

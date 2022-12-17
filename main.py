@@ -1,29 +1,30 @@
-# Change the host and port
-HOST = "0.0.0.0"
-PORT = 81
-
-# TESTING ONLY
-#HOST = "localhost"
-#PORT = 8080
-
-from flask import Flask, render_template, request, url_for, flash, redirect, session
-from yt_dlp import YoutubeDL
-from ytmusicapi import YTMusic
-import time
-import threading
-import shutil
-import json
 import os
+import json
+import shutil
+import threading
+import time
+from ytmusicapi import YTMusic
+from yt_dlp import YoutubeDL
+from flask import Flask, render_template, request, url_for, flash, redirect, session
+
+# Change the host and port
+HOST = "localhost"
+PORT = 8080
 
 print("Server started")
 
 app = Flask(__name__)
 
+audioformat = "webm"
 ydl_opts = {"format": "bestaudio", "noplaylist": "True",
-            "outtmpl": "static/cache/%(id)s.%(ext)s"}
+            "outtmpl": "static/cache/%(id)s." + audioformat}
+
+#ydl_opts = {"format": "bestaudio", "noplaylist": "True",
+#            "outtmpl": "static/cache/%(id)s.%(ext)s"}
 
 shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
 os.mkdir("static/cache")
+
 
 def SearchMusic(query, searchtype, limit):
     ytmusic = YTMusic()
@@ -48,6 +49,7 @@ def GetAlbum(id):
 def home():
     if request.method == "POST":
         searchkeyword = request.form["searchbar"]
+
         songresults = SearchMusic(searchkeyword, "songs", 40)
         albumresults = SearchMusic(searchkeyword, "albums", 6)
         return render_template("main.html", results=songresults, albumresults=albumresults, searchkeyword=searchkeyword)
@@ -65,11 +67,10 @@ def music(id, methods=("GET", "POST")):
     with YoutubeDL(ydl_opts) as ydl:
         ytfile = download = ydl.download(id)
         info = ydl.extract_info(id, download=False)
-        audiourl = info["formats"][7]["url"]
 
         imageurl = info["thumbnail"]
         channelid = info["channel_id"]
-        audiocontent = "/static/cache/" + id + ".webm"
+        audiocontent = "/static/cache/" + id + "." + audioformat
         title = info["title"]
         artistname = info["creator"]
 
@@ -86,9 +87,8 @@ def apimusic(id, methods=("GET", "POST")):
         ytfile = download = ydl.download(id)
         info = ydl.extract_info(id, download=False)
 
-        audiocontent = "/static/cache/" + id + ".webm"
+        return redirect("/static/cache/" + id + "." + audioformat)
 
-        return redirect("/static/cache/" + id + ".webm")
 
 @app.route('/api/album/<id>/<number>')
 def apialbum(id, number, methods=("GET", "POST")):
@@ -100,9 +100,10 @@ def apialbum(id, number, methods=("GET", "POST")):
 
     with YoutubeDL(ydl_opts) as ydl:
         ytfile = download = ydl.download(songresult["videoId"])
-        audiocontent = "/static/cache/" + songresult["videoId"] + ".webm"
+        audiocontent = "/static/cache/" + songresult["videoId"] + "." + audioformat
 
     return redirect(audiocontent)
+
 
 @app.route('/album/<id>')
 def album(id, methods=("GET", "POST")):
@@ -113,13 +114,11 @@ def album(id, methods=("GET", "POST")):
 def page_not_found(e):
     return render_template("error404.html")
 
+
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template("error500.html")
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
 
 if __name__ == "__main__":
     from waitress import serve

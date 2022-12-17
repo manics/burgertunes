@@ -138,6 +138,7 @@ body {
     padding: 10px;
     margin: 10px;
     margin-right: 3px;
+    font-size: 16px;
 }
 
 .searchbutton {
@@ -150,6 +151,7 @@ body {
     padding: 10px;
     margin: 10px;
     margin-left: 3px;
+    font-size: 16px;
 }
 
 .playbutton {
@@ -213,4 +215,18 @@ h2 {
     margin-left: 10px;
     margin-right: 10px;
     white-space: pre-wrap;
+}
+
+.formclass {
+    background-color: #303030;
+    width: 10%;
+    min-width: 95px;
+    color: white;
+    border-radius: 8px;
+    border-width: 0;
+    padding: 10px;
+    margin: 10px;
+}
+.highlight{
+    background-color: #3ebc77;
 }

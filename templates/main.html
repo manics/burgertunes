@@ -5,7 +5,7 @@
     <title>Burgertunes</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/icons/burgertunes64.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="manifest" href="{{ url_for('static', filename='burgertunes.webmanifest') }}" />
@@ -17,8 +17,7 @@
             <h1>Burgertunes</h1>
         </a>
         <form method="post">
-            <input class="searchbar" name="searchbar" value="{{ searchkeyword }}" type="text"
-                placeholder="Search..">
+            <input class="searchbar" name="searchbar" value="{{ searchkeyword }}" type="text" placeholder="Search..">
 
             <button type="submit" class="searchbutton">Search</button>
         </form>
