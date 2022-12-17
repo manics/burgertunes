@@ -8,8 +8,8 @@ from yt_dlp import YoutubeDL
 from flask import Flask, render_template, request, url_for, flash, redirect, session
 
 # Change the host and port
-HOST = "localhost"
-PORT = 8080
+HOST = "0.0.0.0"
+PORT = 81
 
 print("Server started")
 
