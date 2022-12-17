@@ -5,7 +5,7 @@ Privacy-respecting YouTube Music frontend with no ads or telemetry! <br>
 This guide assumes Python and git is installed. <br>
 1. Clone burgertunes (git clone https://github.com/maaa101/burgertunes)<br>
 2. Install all the dependecies in "requirements.txt" using pip. (pip install -r requirements.txt)<br>
-3. All done! 🎉 Run main.py to start the server.<br>
+3. All done! 🎉 Run "python main" to start the server.<br>
 <br>
 You can stop your burgertunes instance by pressing CTRL + C.
 
