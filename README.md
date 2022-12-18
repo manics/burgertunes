@@ -30,4 +30,4 @@ Q: Does burgertunes require JavaScript?<br>
 A: Partly, playing albums requires JavaScript. Playing songs don't.<br>
 <br>There is only vanilla JavaScript, no libraries or frameworks.<br>
 Q: What browsers does Burgertunes work on?<br>
-A: Burgertunes works on Firefox, Chromium and Safari. Safari currently lacks audio playback.
+A: Burgertunes works on Firefox, Chromium and Safari.
