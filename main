@@ -17,7 +17,8 @@ print("Server started")
 app = Flask(__name__)
 
 audioformat = "webm"
-ydl_opts = {"format": "bestaudio", "noplaylist": "True",
+ydl_opts = {"format": "bestaudio",
+            "noplaylist": "True",
             "outtmpl": "static/cache/%(id)s." + audioformat}
 
 #ydl_opts = {"format": "bestaudio", "noplaylist": "True",
