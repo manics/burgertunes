@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: #1e1e1e;
+    background-color: #000000;
     color: #ffffff;
     font-family: "Ubuntu", sans;
 }
@@ -10,7 +10,7 @@ body {
 .navbar {
     margin: 0;
     padding: 2px;
-    background-color: #303030;
+    background-color: #000000;
     text-align: center;
 }
 
@@ -25,10 +25,10 @@ body {
     height: fit-content;
     margin: 8px;
     border-radius: 8px;
-    padding: 10px;
+    padding: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: #272727;
+    background-color: #000000;
 }
 
 .musicdivselected div {
@@ -129,12 +129,14 @@ body {
 }
 
 .searchbar {
-    background-color: #1e1e1e;
+    background-color: #000000;
+    border-width: 1px;
+    border-color: #303030;
+    border-style: solid;
     width: 20%;
     min-width: 150px;
     color: white;
     border-radius: 8px;
-    border-width: 0;
     padding: 10px;
     margin: 10px;
     margin-right: 3px;
@@ -168,7 +170,7 @@ body {
 
 .audioplayer {
     text-align: center;
-    background-color: #272727;
+    background-color: #000000;
     padding: 10px;
     margin: 10px;
     border-color: #303030;
@@ -177,7 +179,6 @@ body {
 
 .audioplayerinv {
     text-align: center;
-    background-color: #1e1e1e;
     padding: 0;
     margin: 0;
 }
@@ -253,6 +254,6 @@ h2 {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #06D;
+    background-color: #3ebc77;
     animation: page-load ease-out 2s;
 }

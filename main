@@ -6,7 +6,7 @@ import threading
 import time
 from ytmusicapi import YTMusic
 from yt_dlp import YoutubeDL
-from flask import Flask, render_template, request, url_for, flash, redirect, session
+from flask import Flask, render_template, request, url_for, flash, redirect, session, make_response
 
 # Change the host and port
 HOST = "0.0.0.0"
@@ -47,6 +47,15 @@ def GetAlbum(id):
     return data
 
 
+def GetTheme():
+    if "style" in request.cookies:
+        style = request.cookies.get("style")
+        style = "/static/css/" + style
+    else:
+        style = "/static/css/style.css"
+    return style
+
+
 @app.route("/", methods=("GET", "POST"))
 def home():
     if request.method == "POST":
@@ -54,12 +63,12 @@ def home():
 
         songresults = SearchMusic(searchkeyword, "songs", 40)
         albumresults = SearchMusic(searchkeyword, "albums", 6)
-        return render_template("main.html", results=songresults, albumresults=albumresults, searchkeyword=searchkeyword)
+        return render_template("main.html", style=GetTheme(), results=songresults, albumresults=albumresults, searchkeyword=searchkeyword)
 
     songresults = SearchMusic("music", "songs", 40)
     albumresults = SearchMusic("music", "albums", 40)
 
-    return render_template("main.html", results=songresults, albumresults=albumresults, startPage=True)
+    return render_template("main.html", style=GetTheme(), results=songresults, albumresults=albumresults, startPage=True)
 
 
 @app.route('/music/<id>')
@@ -78,7 +87,7 @@ def music(id, methods=("GET", "POST")):
 
         results = GetChannel(channelid)
 
-        return render_template("player.html", audiourl=audiocontent, info=info, results=results)
+        return render_template("player.html", style=GetTheme(), audiourl=audiocontent, info=info, results=results)
 
 
 @app.route('/api/music/<id>')
@@ -111,17 +120,25 @@ def apialbum(id, number, methods=("GET", "POST")):
 @app.route('/album/<id>')
 def album(id, methods=("GET", "POST")):
     results = GetAlbum(id)
-    return render_template("albumview.html", results=results, albumid=id)
+    return render_template("albumview.html", style=GetTheme(), results=results, albumid=id)
+
+
+@app.route('/style/<stylesheet>')
+def style(stylesheet, methods=("GET", "POST")):
+    print(stylesheet)
+    resp = make_response(redirect("/"))
+    resp.set_cookie("style", stylesheet)
+    return resp
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("error404.html")
+    return render_template("error404.html", style=GetTheme())
 
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template("error500.html")
+    return render_template("error500.html", style=GetTheme())
 
 
 if __name__ == "__main__":
