@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/icons/burgertunes64.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="manifest" href="{{ url_for('static', filename='burgertunes.webmanifest') }}" />
-
+    <script type="text/javascript" src="{{ url_for('static', filename='loadinganim.js') }}"></script>
 <body>
     <div class="navbar">
         <a class="burgerlogo" href="/">
@@ -22,7 +22,7 @@
 
         <img class="coverartplayer" src="{{ info.thumbnails[38].url }}">
         <br>
-        <audio controls preload="metadata" id="musicPlayer">
+        <audio controls autoplay id="musicPlayer">
             <source src="{{ audiourl }}" type="audio/webm">
             <source src="{{ audiourl }}" type="audio/mp4">
             <source src="{{ audiourl }}" type="audio/mpeg">
@@ -46,8 +46,8 @@
             {% endfor %}
         </div>
     </a>
+
     {% endfor %}
-    </script>
 </body>
 
 </html>
