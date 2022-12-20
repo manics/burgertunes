@@ -10,7 +10,7 @@ This guide assumes Python and git is installed. <br>
 You can stop your burgertunes instance by pressing CTRL + C.
 
 <h2>📚 Featured instances</h2>
-http://burgertunes.tk:8080/ (@PetrifiedOak)<br>
+(TEMPORARILY DOWN) http://burgertunes.tk:8080/ (@PetrifiedOak)<br>
 https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
 
 <br>
