@@ -17,11 +17,12 @@ https://burgertunesapp.maaa101.repl.co/ (@maaa101)<br>
 If you want your own burgertunes instance to be displayed here, create a GitHub issue and let me know!
 
 <h2>✔️ Features</h2>
-- No ads<br>
-- No telemetry or data-collecting<br>
-- 255 kbps high-quality audio<br>
-- Add to homescreen support (A2HS)<br>
-- OLED dark mode
+- No ads.<br>
+- No telemetry or data-collecting.<br>
+- 255 kbps high-quality audio.<br>
+- Add to homescreen support (A2HS).<br>
+- OLED dark mode.<br>
+- Background play on mobile devices.
 
 <h2>❔ FAQ</h2>
 Q: Which license is Burgertunes under?<br>
