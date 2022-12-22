@@ -20,7 +20,11 @@
     <div class="audioplayer">
         <h1>{{ info.title }}</h1>
 
-        <img class="coverartplayer" src="{{ info.thumbnails[38].url }}">
+        <div class="placeholderimgcont">
+            <div class="bg-image-blur" style="background-image: url('{{ info.thumbnails[38].url }}')"></div>
+            <div class="bg-image" style="background-image: url('{{ info.thumbnails[38].url }}')"></div>
+        </div>
+
         <br>
         <audio controls autoplay id="musicPlayer">
             <source src="{{ audiourl }}" type="audio/webm">

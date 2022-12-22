@@ -22,7 +22,10 @@
 
     <div class="audioplayer audioplayerinv">
         <p></p>
-        <img class="albumviewimg" src="{{ results.thumbnails[3].url }}">
+        <div class="placeholderimgcont">
+            <div class="bg-image-blur" style="background-image: url('{{ results.thumbnails[3].url }}')"></div>
+            <div class="bg-image" style="background-image: url('{{ results.thumbnails[3].url }}')"></div>
+        </div>
     </div>
     <br>
     <h2>{{ results.title }}</h1>
