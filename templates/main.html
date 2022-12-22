@@ -29,7 +29,11 @@
     <div class="horizontalcontainer">
         {% for video in albumresults %}
         <a class="linkwrap" href="/album/{{ video.browseId }}">
+            {% if video.thumbnails[3].url %}
             <div class="albumdiv" style="background: url('{{ video.thumbnails[3].url }}'); background-size: 100% 100%;">
+            {% else %}
+            <div class="albumdiv" style="background: url('/static/unknown.png'); background-size: 100% 100%;"></div>
+            {% endif %}
                 {% if video.isExplicit %}
                 <!--/1><p class="explicittag">EXPLICIT</p> -->
                 {% endif %}
