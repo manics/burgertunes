@@ -78,21 +78,18 @@ def home():
 
 @app.route('/music/<id>')
 def music(id, methods=("GET", "POST")):
-    shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
-    os.mkdir("static/cache")
     with YoutubeDL(ydl_opts) as ydl:
-        ytfile = download = ydl.download(id)
         info = ydl.extract_info(id, download=False)
 
         imageurl = info["thumbnail"]
         channelid = info["channel_id"]
-        audiocontent = "/static/cache/" + id + "." + audioformat
+        audiourl = "/api/music/" + info["id"]
         title = info["title"]
         artistname = info["creator"]
 
         results = GetChannel(channelid)
 
-        return render_template("player.html", style=GetTheme(), audiourl=audiocontent, info=info, results=results)
+        return render_template("player.html", style=GetTheme(), audiourl=audiourl, info=info, results=results)
 
 
 @app.route('/api/music/<id>')
