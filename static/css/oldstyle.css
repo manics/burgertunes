@@ -259,7 +259,7 @@ h2 {
     animation: page-load ease-out 2s;
 }
 
-/* image effect because some guy online wanted it */
+/* no image effect because guy online didn't like it :( */
 
 .placeholderimgcont {
     margin-right: auto;
@@ -281,12 +281,4 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.bg-image-blur {
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(20px);
-    -o-filter: blur(20px);
-    -ms-filter: blur(20px);
-    filter: blur(20px);
 }
