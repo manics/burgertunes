@@ -89,6 +89,12 @@ body {
     transform: translateY(-50%);
 }
 
+.videoauthor:hover {
+    border-radius: 8px;
+    background-color: #afafaf;
+    color: black;
+}
+
 .videoimg {
     height: 60px;
     width: 60px;
@@ -289,4 +295,10 @@ h2 {
     -o-filter: blur(20px);
     -ms-filter: blur(20px);
     filter: blur(20px);
+}
+
+.pageimage {
+    object-fit: cover;
+    width: 100%;
+    max-height: 300px;
 }

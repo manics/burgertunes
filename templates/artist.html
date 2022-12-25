@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Burgertunes</title>
+    <title>{{ info.name }}</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,41 +10,17 @@
     <link rel="stylesheet" type="text/css" href="{{ style }}" />
     <link rel="manifest" href="{{ url_for('static', filename='burgertunes.webmanifest') }}" />
     <script type="text/javascript" src="{{ url_for('static', filename='loadinganim.js') }}"></script>
-</head>
-
 <body>
     <div class="navbar">
         <a class="burgerlogo" href="/">
             <h1>Burgertunes</h1>
+            <p>Privacy-friendly music streaming</p>
         </a>
-        <form method="post">
-            <input class="searchbar" name="searchbar" value="{{ searchkeyword }}" type="text" placeholder="Search..">
-
-            <button type="submit" class="searchbutton">Search</button>
-        </form>
     </div>
-    {% if startPage %}
-    <h2>Recommendations</h2>
-    {% endif %}
-    <div class="horizontalcontainer">
-        {% for video in albumresults %}
-        <a class="linkwrap" href="/album/{{ video.browseId }}">
-            {% if video.thumbnails[3].url %}
-            <div class="albumdiv" style="background: url('{{ video.thumbnails[3].url }}'); background-size: 100% 100%;">
-            {% else %}
-            <div class="albumdiv" style="background: url('/static/unknown.png'); background-size: 100% 100%;"></div>
-            {% endif %}
-                {% if video.isExplicit %}
-                <!--/1><p class="explicittag">EXPLICIT</p> -->
-                {% endif %}
-                <div class="albumtitleshadow"></div>
-                <p class="albumtitle">{{ video.title | truncate(23, true, '..')}}</p>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-
-    {% for video in results %}
+    <img class="pageimage" src="{{ info.thumbnails[2].url }}">
+    <h1>{{ info.name }}</h1>
+    <p class="errortext">{{ info.description }}</p>
+    {% for video in info.songs.results %}
     <a class="linkwrap" href="/music/{{ video.videoId }}">
         <div class="musicdiv">
             <img class="videoimg" loading="lazy" src="{{ video.thumbnails[0].url }}">
@@ -61,6 +37,5 @@
     </a>
     {% endfor %}
 </body>
-
 
 </html>
