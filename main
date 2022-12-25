@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import os
 import json
-import shutil
 import threading
 import time
 import configparser
@@ -27,14 +26,6 @@ ydl_opts = {"format": "best[ext=mp4]",
 # ydl_opts = {"format": "bestaudio", "noplaylist": "True",
 #            "outtmpl": "static/cache/%(id)s.%(ext)s"}
 
-try:
-    shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
-    os.mkdir("static/cache")
-except:
-    print("🔴 Burgertunes failed in making a folder")
-    print("""Running mkdir "static/cache" might fix this""")
-
-
 def SearchMusic(query, searchtype, limit):
     ytmusic = YTMusic()
     search_results = ytmusic.search(
@@ -52,6 +43,22 @@ def GetAlbum(id):
     ytmusic = YTMusic()
     data = ytmusic.get_album(id)
     return data
+
+def DeleteDir(dir):
+    if dir[-1] == os.sep: dir = dir[:-1]
+    files = os.listdir(dir)
+    for file in files:
+        if file == '.' or file == '..': continue
+        path = dir + os.sep + file
+        if os.path.isdir(path):
+            nukedir(path)
+        else:
+            os.unlink(path)
+    os.rmdir(dir)
+
+def ResetCache():
+    DeleteDir("static/cache")
+    os.mkdir("static/cache")
 
 
 def GetTheme():
@@ -96,8 +103,7 @@ def music(id, methods=("GET", "POST")):
 
 @app.route('/api/music/<id>')
 def apimusic(id, methods=("GET", "POST")):
-    shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
-    os.mkdir("static/cache")
+    ResetCache()
     with YoutubeDL(ydl_opts) as ydl:
         ytfile = download = ydl.download(id)
         info = ydl.extract_info(id, download=False)
@@ -110,8 +116,7 @@ def apialbum(id, number, methods=("GET", "POST")):
     results = GetAlbum(id)
     songresult = results["tracks"][int(number)]
 
-    shutil.rmtree("static/cache", ignore_errors=False, onerror=None)
-    os.mkdir("static/cache")
+    ResetCache()
 
     with YoutubeDL(ydl_opts) as ydl:
         ytfile = download = ydl.download(songresult["videoId"])
