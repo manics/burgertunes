@@ -1,3 +1,5 @@
+NOTE: Burgertunes has been getting a lot of feature requests recently and might use some time adding them. 👍
+
 <h1>🍔 Burgertunes</h1>
 Privacy-respecting YouTube Music frontend with no ads or telemetry! <br>
 
